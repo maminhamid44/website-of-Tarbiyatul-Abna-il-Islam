@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="om" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tarbiyatul Abna’il Islam | تربية أبناء الإسلام | Dambii Ittiin Bulmaataa</title>
+  
+  <!-- Define Tailwind config object before CDN script runs -->
+  <script>
+    tailwind = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            emeraldPrimary: '#087443',
+            emeraldDark: '#064B32',
+            goldAccent: '#D4AF37',
+            creamBg: '#F8F5EA',
+          }
+        }
+      }
+    };
+  </script>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Inter', 'Cairo', sans-serif;
+    }
+    .font-serif-ar {
+      font-family: 'Amiri', serif;
+    }
+    .pattern-bg {
+      background-color: #064B32;
+      background-image: radial-gradient(#087443 0.75px, transparent 0.75px), radial-gradient(#087443 0.75px, #064B32 0.75px);
+      background-size: 24px 24px;
+      background-position: 0 0, 12px 12px;
+    }
+  </style>
+</head>
+<body class="bg-[#F8F5EA] text-[#17211B] dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300">
+
+  <!-- ================= STICKY HEADER & NAV ================= -->
+  <header class="sticky top-0 z-40 backdrop-blur-md bg-white/90 dark:bg-slate-900/90 border-b border-amber-100 dark:border-slate-800 shadow-sm transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#home" class="flex items-center gap-3 group">
+        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-[#087443] to-[#064B32] p-0.5 shadow-md flex items-center justify-center border border-[#D4AF37]">
+          <div class="w-full h-full rounded-full bg-[#064B32] flex items-center justify-center text-amber-400 font-bold text-xl">
+            📖
+          </div>
+        </div>
+        <div>
+          <div class="font-bold text-lg md:text-xl text-[#087443] dark:text-emerald-400 leading-tight font-serif-ar">
+            تربية أبناء الإسلام
+          </div>
+          <div class="text-xs text-amber-700 dark:text-amber-400 tracking-wider font-semibold">
+            Tarbiyatul Abna’il Islam
+          </div>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden xl:flex items-center gap-4 text-xs font-semibold">
+        <a href="#home" class="hover:text-[#087443] dark:hover:text-emerald-400 transition-colors" data-i18n="navHome">Mana</a>
+        <a href="#about" class="hover:text-[#087443] dark:hover:text-emerald-400 transition-colors" data-i18n="navAbout">Waa'ee Keenya</a>
+        <a href="#quran" class="hover:text-[#087443] dark:hover:text-emerald-400 transition-colors" data-i18n="navQuran">Barnoota Qur’aanaa</a>
+        <a href="#dambii" class="text-amber-700 dark:text-amber-400 hover:underline font-bold bg-amber-50 dark:bg-slate-800 px-2.5 py-1 rounded-lg border border-amber-300 dark:border-slate-700" data-i18n="navBylaws">📜 Dambii Ittiin Bulmaataa</a>
+        <a href="#programs" class="hover:text-[#087443] dark:hover:text-emerald-400 transition-colors" data-i18n="navPrograms">Sagantaalee</a>
+        <a href="#teachers" class="hover:text-[#087443] dark:hover:text-emerald-400 transition-colors" data-i18n="navTeachers">Barsiisota</a>
+        <a href="#events" class="hover:text-[#087443] dark:hover:text-emerald-400 transition-colors" data-i18n="navEvents">Taateewwan</a>
+        <a href="#gallery" class="hover:text-[#087443] dark:hover:text-emerald-400 transition-colors" data-i18n="navGallery">Galmee Suuraa</a>
+        <a href="#news" class="hover:text-[#087443] dark:hover:text-emerald-400 transition-colors" data-i18n="navNews">Oduu</a>
+        <a href="#contact" class="hover:text-[#087443] dark:hover:text-emerald-400 transition-colors" data-i18n="navContact">Nu Qunnamaa</a>
+      </nav>
+
+      <!-- Language & Theme Actions -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <!-- Theme Switcher -->
+        <button id="themeToggle" class="p-2 rounded-full hover:bg-emerald-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300" aria-label="Toggle Theme">
+          🌙
+        </button>
+
+        <!-- Trilingual Switcher -->
+        <select id="langSelect" onchange="changeLanguage(this.value)" class="px-3 py-1.5 rounded-xl border border-amber-300 dark:border-slate-700 text-xs font-semibold bg-amber-50/50 dark:bg-slate-800 text-[#064B32] dark:text-emerald-300 outline-none cursor-pointer">
+          <option value="om">Afaan Oromoo</option>
+          <option value="ar">العربية</option>
+          <option value="en">English</option>
+        </select>
+
+        <!-- CTA Buttons -->
+        <a href="#enroll" class="hidden sm:inline-flex px-4 py-2 rounded-xl text-xs font-bold bg-[#087443] hover:bg-[#064B32] text-white shadow-md transition-all" data-i18n="navEnroll">
+          Amma Galmaa'i
+        </a>
+        <a href="#portal" class="hidden md:inline-flex px-3 py-2 rounded-xl text-xs font-bold border border-[#D4AF37] text-[#064B32] dark:text-amber-300 hover:bg-amber-100/50 dark:hover:bg-slate-800 transition-all" data-i18n="navPortal">
+          Poortaalii Barataa
+        </a>
+
+        <!-- Mobile Drawer Toggle -->
+        <button onclick="toggleMobileMenu()" class="xl:hidden p-2 rounded-lg text-slate-700 dark:text-slate-200" aria-label="Toggle Mobile Menu">
+          ☰
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ================= MOBILE DRAWER ================= -->
+  <div id="mobileMenu" class="fixed inset-0 z-50 xl:hidden bg-slate-900/60 backdrop-blur-sm hidden flex justify-end">
+    <div class="w-4/5 max-w-sm bg-white dark:bg-slate-900 h-full p-6 shadow-2xl flex flex-col justify-between overflow-y-auto">
+      <div>
+        <div class="flex items-center justify-between pb-4 border-b border-slate-100 dark:border-slate-800">
+          <div class="font-bold text-[#087443] dark:text-emerald-400 font-serif-ar text-lg">تربية أبناء الإسلام</div>
+          <button onclick="toggleMobileMenu()" class="text-xl">✕</button>
+        </div>
+        <div class="flex flex-col gap-3 py-6 text-sm font-semibold">
+          <a href="#home" onclick="toggleMobileMenu()" data-i18n="navHome">Mana</a>
+          <a href="#about" onclick="toggleMobileMenu()" data-i18n="navAbout">Waa'ee Keenya</a>
+          <a href="#quran" onclick="toggleMobileMenu()" data-i18n="navQuran">Barnoota Qur’aanaa</a>
+          <a href="#dambii" onclick="toggleMobileMenu()" class="text-amber-700 font-bold" data-i18n="navBylaws">📜 Dambii Ittiin Bulmaataa</a>
+          <a href="#programs" onclick="toggleMobileMenu()" data-i18n="navPrograms">Sagantaalee</a>
+          <a href="#teachers" onclick="toggleMobileMenu()" data-i18n="navTeachers">Barsiisota</a>
+          <a href="#events" onclick="toggleMobileMenu()" data-i18n="navEvents">Taateewwan</a>
+          <a href="#gallery" onclick="toggleMobileMenu()" data-i18n="navGallery">Galmee Suuraa</a>
+          <a href="#news" onclick="toggleMobileMenu()" data-i18n="navNews">Oduu</a>
+          <a href="#contact" onclick="toggleMobileMenu()" data-i18n="navContact">Nu Qunnamaa</a>
+        </div>
+      </div>
+      <div class="space-y-3 pt-4 border-t border-slate-100 dark:border-slate-800">
+        <a href="#enroll" onclick="toggleMobileMenu()" class="block w-full py-2.5 text-center bg-[#087443] text-white rounded-xl font-bold text-xs" data-i18n="navEnroll">Amma Galmaa'i</a>
+        <a href="#portal" onclick="toggleMobileMenu()" class="block w-full py-2.5 text-center border border-[#D4AF37] text-[#064B32] dark:text-amber-300 rounded-xl font-bold text-xs" data-i18n="navPortal">Poortaalii Barataa</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= HERO SECTION ================= -->
+  <section id="home" class="relative overflow-hidden pattern-bg text-white py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid lg:grid-cols-2 gap-12 items-center text-center lg:text-start">
+        <div class="space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-400/20 border border-amber-400/30 text-amber-300 text-xs font-semibold backdrop-blur-sm">
+            ✨ <span data-i18n="heroBadge">Dhaabbata Barnoota Qur’aanaa fi Tarbiyaa Islaamaa</span>
+          </div>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight font-serif-ar leading-tight" data-i18n="heroHeadline">
+            Qalbii Qur’aanaan Guddisuu
+          </h1>
+          <p class="text-emerald-100 text-base sm:text-lg max-w-2xl leading-relaxed mx-auto lg:mx-0" data-i18n="heroDesc">
+            Dhaloota beekumsa Qur’aanaa, amantii, naamusa gaarii fi duudhaa Islaamaa irratti hundaa’e ijaaruuf hojjenna.
+          </p>
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+            <a href="#enroll" class="px-7 py-3.5 rounded-xl bg-[#D4AF37] hover:bg-amber-400 text-slate-950 font-bold text-sm shadow-xl transition-all" data-i18n="heroBtnEnroll">
+              Ilma Keessan Galmeessaa
+            </a>
+            <a href="#dambii" class="px-7 py-3.5 rounded-xl border border-white/30 hover:bg-white/10 text-white font-bold text-sm backdrop-blur-sm transition-all" data-i18n="heroBtnBylaws">
+              Dambii Ittiin Bulmaataa
+            </a>
+          </div>
+        </div>
+
+        <div class="relative flex justify-center">
+          <div class="w-full max-w-md rounded-3xl overflow-hidden shadow-2xl border-4 border-amber-400/30">
+            <img src="https://images.unsplash.com/photo-1609599006353-e629aaabfeae?auto=format&fit=crop&q=80&w=1000" alt="Qur'an Center Learning Environment" class="w-full h-[380px] object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-6">
+              <div class="text-white text-left">
+                <div class="text-amber-300 font-serif-ar text-lg font-bold">Markazu Tarbiyatu Abnaa'il Islaam</div>
+                <div class="text-xs text-slate-200">Gafarsa, Burayu, Oromia • Established 2018 (A.L.I)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= STATISTICS ================= -->
+  <section class="relative -mt-10 z-20 max-w-6xl mx-auto px-4">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 bg-white dark:bg-slate-900 rounded-2xl shadow-xl p-6 border border-amber-200/50 dark:border-slate-800 text-center">
+      <div>
+        <div class="text-3xl font-extrabold text-[#087443] dark:text-emerald-400 font-serif-ar">500+</div>
+        <div class="text-xs text-slate-600 dark:text-slate-400 font-medium mt-1" data-i18n="statStudents">Barattoota Galmaa’an</div>
+      </div>
+      <div>
+        <div class="text-3xl font-extrabold text-[#087443] dark:text-emerald-400 font-serif-ar">400+</div>
+        <div class="text-xs text-slate-600 dark:text-slate-400 font-medium mt-1" data-i18n="statTeachers">Barsiisota Leenji’an</div>
+      </div>
+      <div>
+        <div class="text-3xl font-extrabold text-[#087443] dark:text-emerald-400 font-serif-ar">6+</div>
+        <div class="text-xs text-slate-600 dark:text-slate-400 font-medium mt-1" data-i18n="statPrograms">Sagantaalee Barnootaa</div>
+      </div>
+      <div>
+        <div class="text-3xl font-extrabold text-[#087443] dark:text-emerald-400 font-serif-ar">4+</div>
+        <div class="text-xs text-slate-600 dark:text-slate-400 font-medium mt-1" data-i18n="statYears">Waggoota Tajaajilaa</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT US ================= -->
+  <section id="about" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-3xl sm:text-4xl font-extrabold font-serif-ar text-[#064B32] dark:text-emerald-400 mb-4" data-i18n="aboutTitle">Waa'ee Tarbiyatul Abna’il Islam</h2>
+      <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed" data-i18n="aboutDesc">
+        Tarbiyatul Abna’il Islam dhaabbata barnoota Islaamaa kan Qur’aana, Tajwiida, Hifzii, barnoota Islaamaa fi naamusa gaarii barsiisuu irratti xiyyeeffatuudha.
+      </p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="p-8 rounded-2xl bg-white dark:bg-slate-900 border border-amber-200/60 dark:border-slate-800 shadow-sm">
+        <h3 class="text-xl font-bold font-serif-ar mb-3 text-[#087443]" data-i18n="visionTitle">Mul'ata Keenya</h3>
+        <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed" data-i18n="visionText">“Dhaloota Qur’aanaan jiraatu fi naamusa gaarii Islaamaa agarsiisu uumuu.”</p>
+      </div>
+      <div class="p-8 rounded-2xl bg-white dark:bg-slate-900 border border-amber-200/60 dark:border-slate-800 shadow-sm">
+        <h3 class="text-xl font-bold font-serif-ar mb-3 text-[#087443]" data-i18n="missionTitle">Ergama Keenya</h3>
+        <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed" data-i18n="missionText">“Barnoota Qur’aanaa fi Islaamaa qulqullina qabu biyyaa fi naannoo mijataa keessatti dhiyeessuu.”</p>
+      </div>
+      <div class="p-8 rounded-2xl bg-white dark:bg-slate-900 border border-amber-200/60 dark:border-slate-800 shadow-sm">
+        <h3 class="text-xl font-bold font-serif-ar mb-3 text-[#087443]" data-i18n="valuesTitle">Duudhaalee Keenya</h3>
+        <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed" data-i18n="valuesText">Qur’aana • Amantii • Beekumsa • Naamusa • Kabaja • Seera • Ittigaafatamummaa</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= QURAN EDUCATION ================= -->
+  <section id="quran" class="py-20 bg-emerald-900/5 dark:bg-slate-900/50 border-y border-amber-200/40 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <h2 class="text-3xl sm:text-4xl font-extrabold font-serif-ar text-[#064B32] dark:text-emerald-400 mb-3" data-i18n="quranEduTitle">Barnoota Qur’aanaa</h2>
+        <p class="text-slate-600 dark:text-slate-400 text-sm" data-i18n="quranEduSubtitle">Mata dureewwan barnoota Qur’aanaa, qara’iinsa fi Hifzii</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-amber-100 dark:border-slate-800 shadow-sm">
+          <div class="w-10 h-10 rounded-lg bg-[#087443] text-amber-300 flex items-center justify-center font-bold text-sm mb-4">01</div>
+          <h3 class="text-lg font-bold font-serif-ar mb-2" data-i18n="c1Title">Qara’iinsa Qur’aanaa</h3>
+          <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed" data-i18n="c1Desc">Sagalee sirrii fi dubbisa qulqulluu Qur’aanaa barattoota barsiisuu.</p>
+        </div>
+        <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-amber-100 dark:border-slate-800 shadow-sm">
+          <div class="w-10 h-10 rounded-lg bg-[#087443] text-amber-300 flex items-center justify-center font-bold text-sm mb-4">02</div>
+          <h3 class="text-lg font-bold font-serif-ar mb-2" data-i18n="c2Title">Tajwiida</h3>
+          <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed" data-i18n="c2Desc">Seera Tajwiidaa akkasumas haala bareedaa qara’iinsaa barsiisuu.</p>
+        </div>
+        <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-amber-100 dark:border-slate-800 shadow-sm">
+          <div class="w-10 h-10 rounded-lg bg-[#087443] text-amber-300 flex items-center justify-center font-bold text-sm mb-4">03</div>
+          <h3 class="text-lg font-bold font-serif-ar mb-2" data-i18n="c3Title">Hifzii Qur’aanaa</h3>
+          <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed" data-i18n="c3Desc">Qur’aana sirnaan qabachuun irra deebi’insa gahaa waliin.</p>
+        </div>
+        <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-amber-100 dark:border-slate-800 shadow-sm">
+          <div class="w-10 h-10 rounded-lg bg-[#087443] text-amber-300 flex items-center justify-center font-bold text-sm mb-4">04</div>
+          <h3 class="text-lg font-bold font-serif-ar mb-2" data-i18n="c4Title">Barnoota Islaamaa</h3>
+          <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed" data-i18n="c4Desc">Aqidaa, Fiqhii, Siiraa, fi Hadiisa barattoota barsiisuu.</p>
+        </div>
+        <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-amber-100 dark:border-slate-800 shadow-sm">
+          <div class="w-10 h-10 rounded-lg bg-[#087443] text-amber-300 flex items-center justify-center font-bold text-sm mb-4">05</div>
+          <h3 class="text-lg font-bold font-serif-ar mb-2" data-i18n="c5Title">Du’aa’ii fi Hadiisa</h3>
+          <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed" data-i18n="c5Desc">Du’aa’ii guyyaa guyyaa fi Hadiisota filatamaan leenjisuu.</p>
+        </div>
+        <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-amber-100 dark:border-slate-800 shadow-sm">
+          <div class="w-10 h-10 rounded-lg bg-[#087443] text-amber-300 flex items-center justify-center font-bold text-sm mb-4">06</div>
+          <h3 class="text-lg font-bold font-serif-ar mb-2" data-i18n="c6Title">Naamusa Islaamaa</h3>
+          <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed" data-i18n="c6Desc">Dhugummaa, kabaja, obsa, fi amanamummaa ijaaruu.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONSTITUTION SECTION (DAMBII ITTIIN BULMAATAA) ================= -->
+  <section id="dambii" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <span class="px-3.5 py-1 rounded-full bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300 text-xs font-bold border border-amber-300 dark:border-amber-800">
+        Sanada Seeraa Dhaabbataa / Official Bylaws
+      </span>
+      <h2 class="text-3xl sm:text-5xl font-extrabold font-serif-ar text-[#064B32] dark:text-emerald-400 mt-3 mb-4">
+        Dambii Ittiin Bulmaataa
+      </h2>
+      <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
+        Makaza Tarbiyatu Abna'il Islaami (Markazu Tarbiyat Abnaa'il Islam) — Sadaasa 04, Bara 2016 (A.L.I), Magaalaa Shaggar, Kutaa Magaalaa Buraayyuu, Gafarsa.
+      </p>
+    </div>
+
+    <!-- Article Search & Filter -->
+    <div class="max-w-xl mx-auto mb-10">
+      <input 
+        type="text" 
+        id="bylawSearchInput"
+        onkeyup="filterBylawArticles()"
+        placeholder="Keewwata ykn Mata Duree barbaadi (Search Articles 1-16)..." 
+        class="w-full px-5 py-3.5 rounded-2xl border border-amber-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-sm outline-none focus:ring-2 focus:ring-[#087443] shadow-sm"
+      />
+    </div>
+
+    <!-- Articles Grid 1 - 16 -->
+    <div id="articlesGrid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+      
+      <!-- Keewwata 1 -->
+      <div class="bylaw-card bg-white dark:bg-slate-900 p-6 rounded-2xl border border-amber-200/80 dark:border-slate-800 shadow-sm hover:border-[#D4AF37] transition-all">
+        <span class="text-xs font-bold text-[#087443] bg-emerald-50 dark:bg-emerald-950/80 px-2.5 py-1 rounded-lg">Keewwata 1</span>
+        <h3 class="font-bold text-lg text-[#064B32] dark:text-emerald-400 mt-3 mb-2">Hundeeffama</h3>
+        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+          Dhaabbatichi Sadaasa 04 bara 2018 (A.L.I) Naannoo Oromiyaa, Magaalaa Shaggar, Kutaa Magaalaa Buraayyuu keessatti hundeeffame. Kaayyoon gurguddoon dhaloota amantii fi aqiidaa tiksuu, beekumsaan qopheessuu fi barattoota kolleejjii fi yuunivarsiitiif qopheessuudha. Seerotni Mana Maree Waliigalaa Dhimma Islaamaa Oromiyaa raawwatiinsa qabu.
+        </p>
+      </div>
+
+      <!-- Keewwata 2 -->
+      <div class="bylaw-card bg-white dark:bg-slate-900 p-6 rounded-2xl border border-amber-200/80 dark:border-slate-800 shadow-sm hover:border-[#D4AF37] transition-all">
+        <span class="text-xs font-bold text-[#087443] bg-emerald-50 dark:bg-emerald-950/80 px-2.5 py-1 rounded-lg">Keewwata 2</span>
+        <h3 class="font-bold text-lg text-[#064B32] dark:text-emerald-400 mt-3 mb-2">Moggaasa Maqaa</h3>
+        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+          Dhaabbatichi ittiin bulmaata kana irratti hundaa'ee officialidhaan <strong>"Dhaabbata Makaza Tarbiyatu Abna'il Islaami"</strong> jedhamee waamama.
+        </p>
+      </div>
+
+      <!-- Keewwata 3 -->
+      <div class="bylaw-card bg-white dark:bg-slate-900 p-6 rounded-2xl border border-amber-200/80 dark:border-slate-800 shadow-sm hover:border-[#D4AF37] transition-all">
+        <span class="text-xs font-bold text-[#087443] bg-emerald-50 dark:bg-emerald-950/80 px-2.5 py-1 rounded-lg">Keewwata 3</span>
+        <h3 class="font-bold text-lg text-[#064B32] dark:text-emerald-400 mt-3 mb-2">Kaayyoo Dhaabbatichaa</h3>
+        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+          3.1 Barnoota Islaamaa (Qur'aana, Hadiisa, Aqiidaa, Tajwiida, Fiqhii, Nahwii) barsiisuu.<br>
+          3.2 Humna namaa ijaaruu fi masjiidota naannawaa irratti hirmaachuu.<br>
+          3.3 Diinagdeedhaan of ijaaruu fi madda galii garaagaraa maddisiisuu.
+        </p>
+      </div>
+
+      <!-- Keewwata 4 -->
+      <div class="bylaw-card bg-white dark:bg-slate-900 p-6 rounded-2xl border border-amber-200/80 dark:border-slate-800 shadow-sm hover:border-[#D4AF37] transition-all">
+        <span class="text-xs font-bold text-[#087443] bg-emerald-50 dark:bg-emerald-950/80 px-2.5 py-1 rounded-lg">Keewwata 4 & 5</span>
+        <h3 class="font-bold text-lg text-[#064B32] dark:text-emerald-400 mt-3 mb-2">Baajata Waggaa & Hiikkaa</h3>
+        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+          Baajanni dhaabbatichaa waggaatti Adoolessa 01 (July 01) irraa eegalee hanga Waxabajjii 30 (June 30) ta'a. Hiikkaan "Dhaabbata" jechuun "Makaza Tarbiyatu Abna'il Islaami" dha.
+        </p>
+      </div>
+
+      <!-- Keewwata 6 & 7 -->
+      <div class="bylaw-card bg-white dark:bg-slate-900 p-6 rounded-2xl border border-amber-200/80 dark:border-slate-800 shadow-sm hover:border-[#D4AF37] transition-all">
+        <span class="text-xs font-bold text-[#087443] bg-emerald-50 dark:bg-emerald-950/80 px-2.5 py-1 rounded-lg">Keewwata 6 & 7</span>
+        <h3 class="font-bold text-lg text-[#064B32] dark:text-emerald-400 mt-3 mb-2">Miseensota & Kabaja Miseensotaa</h3>
+        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+          Miseensi idilee Muslima umurii 18+ ta'e, kaayyoo dhaabbatichaa amanuu fi kaffaltii yeroon kaffaluuf waliigaleedha. Miseensonni kabajaa gumaacha ol'aanaa taasisaniif kan kennamu ta'ee mirga sagalee kennuu hin qaban.
+        </p>
+      </div>
+
+      <!-- Keewwata 8 & 9 -->
+      <div class="bylaw-card bg-white dark:bg-slate-900 p-6 rounded-2xl border border-amber-200/80 dark:border-slate-800 shadow-sm hover:border-[#D4AF37] transition-all">
+        <span class="text-xs font-bold text-[#087443] bg-emerald-50 dark:bg-emerald-950/80 px-2.5 py-1 rounded-lg">Keewwata 8 & 9</span>
+        <h3 class="font-bold text-lg text-[#064B32] dark:text-emerald-400 mt-3 mb-2">Mirga & Dirqama Miseensotaa</h3>
+        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+          Mirga wal-qixxummaa, filachuu/filatamuu, marii irratti hirmaachuu. Dirqama kaffaltii yeroon kaffaluu, liqaa cleared gochuu, murtoowwan Yaa'ii Waliigalaa kabajuu fi qabeenya kunuunsuu.
+        </p>
+      </div>
+
+      <!-- Keewwata 10 & 11 -->
+      <div class="bylaw-card bg-white dark:bg-slate-900 p-6 rounded-2xl border border-amber-200/80 dark:border-slate-800 shadow-sm hover:border-[#D4AF37] transition-all">
+        <span class="text-xs font-bold text-[#087443] bg-emerald-50 dark:bg-emerald-950/80 px-2.5 py-1 rounded-lg">Keewwata 10 & 11</span>
+        <h3 class="font-bold text-lg text-[#064B32] dark:text-emerald-400 mt-3 mb-2">Kaffaltii & Addaan Cituu</h3>
+        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+          Gumaachi Yaa'ii Waliigalaatiin murtaa'a. Miseensummaan kan addaan citu: Du'aan, dambii kabajuu dhabuun, miidhaa dhaabbaticha irratti geessisuun mirkanaa'uu, ykn fedhiidhaan barreeffamaan yoo gaafatame.
+        </p>
+      </div>
+
+      <!-- Keewwata 13 -->
+      <div class="bylaw-card bg-white dark:bg-slate-900 p-6 rounded-2xl border border-amber-200/80 dark:border-slate-800 shadow-sm hover:border-[#D4AF37] transition-all">
+        <span class="text-xs font-bold text-[#087443] bg-emerald-50 dark:bg-emerald-950/80 px-2.5 py-1 rounded-lg">Keewwata 13</span>
+        <h3 class="font-bold text-lg text-[#064B32] dark:text-emerald-400 mt-3 mb-2">Madda Galii Dhaabbatichaa</h3>
+        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+          Galiin dhaabbatichaa miseensota gumaatamu, gumaacha ummata irraa walitti qabamu, gargaarsa fi madda galii dhaabbatichi ofii isaatiin maddisiisu irraa argama.
+        </p>
+      </div>
+
+      <!-- Keewwata 14, 15 & 16 -->
+      <div class="bylaw-card bg-white dark:bg-slate-900 p-6 rounded-2xl border border-amber-200/80 dark:border-slate-800 shadow-sm hover:border-[#D4AF37] transition-all">
+        <span class="text-xs font-bold text-[#087443] bg-emerald-50 dark:bg-emerald-950/80 px-2.5 py-1 rounded-lg">Keewwata 14 - 16</span>
+        <h3 class="font-bold text-lg text-[#064B32] dark:text-emerald-400 mt-3 mb-2">Fooyya'iinsa, Makamuu & Diigamuu</h3>
+        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+          Dambiin fooyya'uu kan danda'u gaaffiin 1/4 miseensotaan dhihaatee sagalee 3/4n yoo ragga'eedha. Dhaabbata biroo waliin makamuu ykn diigamuun sagalee 3/4 Yaa'ii Waliigalaatiin murtaa'a.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- ORGANIZATIONAL CHART (KEEWWATA 12) -->
+    <div id="caasaaSection" class="bg-gradient-to-br from-[#064B32] to-[#087443] text-white p-8 sm:p-12 rounded-3xl shadow-xl mb-16 border border-amber-400/30">
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="px-3 py-1 rounded-full bg-amber-400/20 text-amber-300 text-xs font-bold border border-amber-400/30">Keewwata 12</span>
+        <h3 class="text-2xl sm:text-4xl font-bold font-serif-ar mt-2 text-amber-300">Caasaa Dhaabbatichaa (Org Chart)</h3>
+        <p class="text-emerald-100 text-xs sm:text-sm mt-1">Strukturada Hooggana fi Bulchiinsa Markazu Tarbiyatu Abnaa'il Islaam</p>
+      </div>
+
+      <div class="flex flex-col items-center space-y-4 text-xs font-bold">
+        <!-- Top Level -->
+        <div class="bg-[#D4AF37] text-slate-950 px-8 py-3 rounded-2xl shadow-lg border-2 border-white text-center text-sm font-extrabold">
+          Yaa'ii Waliigalaa (ጠቅላላ ጉባኤ)
+        </div>
+        <div class="w-0.5 h-6 bg-amber-400"></div>
+
+        <!-- Second Level -->
+        <div class="flex flex-wrap justify-center gap-6">
+          <div class="bg-emerald-800 text-emerald-200 px-6 py-2.5 rounded-xl border border-emerald-500 shadow text-center">
+            Odiitara (ኦዲተር)
+          </div>
+          <div class="bg-[#087443] text-amber-300 px-8 py-2.5 rounded-xl border-2 border-amber-400 shadow text-center font-bold">
+            Boordii (ቦርድ)
+          </div>
+        </div>
+        <div class="w-0.5 h-6 bg-amber-400"></div>
+
+        <!-- Executive Level -->
+        <div class="bg-slate-900 text-white px-8 py-3 rounded-2xl border border-amber-400/50 shadow-md text-center text-sm">
+          Hojii Geggeessaa / Manager (ስራ አስኪያጅ)
+        </div>
+        <div class="w-0.5 h-6 bg-amber-400"></div>
+
+        <!-- Operations Level -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full max-w-2xl text-center">
+          <div class="bg-slate-800/90 text-emerald-300 p-3 rounded-xl border border-emerald-700/60">
+            Herregaa / Accountant<br><span class="text-[10px] text-slate-400 font-normal">(ሂሳብ ሹም)</span>
+          </div>
+          <div class="bg-slate-800/90 text-amber-300 p-3 rounded-xl border border-amber-700/60">
+            Qabduu Maallaqaa / Cashier<br><span class="text-[10px] text-slate-400 font-normal">(ገንዘብ ያዥ)</span>
+          </div>
+          <div class="bg-slate-800/90 text-slate-200 p-3 rounded-xl border border-slate-700">
+            Hojjettoota Biroo / Staff<br><span class="text-[10px] text-slate-400 font-normal">(ሌሎች ሰራተኞች)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOUNDING MEMBERS ROSTER -->
+    <div class="bg-white dark:bg-slate-900 p-8 sm:p-10 rounded-3xl border border-amber-200/80 dark:border-slate-800 shadow-sm">
+      <div class="text-center max-w-xl mx-auto mb-8">
+        <h3 class="text-2xl font-bold font-serif-ar text-[#064B32] dark:text-emerald-400">Miseensota Hundeessitoota (Founding Members)</h3>
+        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Mallattoodhaan kan mirkaneessan qaamota bu'uuressitoota dhaabbatichaa</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs font-semibold">
+        <div class="p-4 bg-emerald-50/60 dark:bg-slate-800/60 rounded-xl border border-emerald-100 dark:border-slate-700 flex items-center gap-3">
+          <div class="w-7 h-7 rounded-full bg-[#087443] text-white flex items-center justify-center font-bold text-xs shrink-0">1</div>
+          <span>Adam Hamid Dabale</span>
+        </div>
+        <div class="p-4 bg-emerald-50/60 dark:bg-slate-800/60 rounded-xl border border-emerald-100 dark:border-slate-700 flex items-center gap-3">
+          <div class="w-7 h-7 rounded-full bg-[#087443] text-white flex items-center justify-center font-bold text-xs shrink-0">2</div>
+          <span>Abdulhakim Sheikh Mohamad</span>
+        </div>
+        <div class="p-4 bg-emerald-50/60 dark:bg-slate-800/60 rounded-xl border border-emerald-100 dark:border-slate-700 flex items-center gap-3">
+          <div class="w-7 h-7 rounded-full bg-[#087443] text-white flex items-center justify-center font-bold text-xs shrink-0">3</div>
+          <span>Abdlfetah Hamid Dabale</span>
+        </div>
+        <div class="p-4 bg-emerald-50/60 dark:bg-slate-800/60 rounded-xl border border-emerald-100 dark:border-slate-700 flex items-center gap-3">
+          <div class="w-7 h-7 rounded-full bg-[#087443] text-white flex items-center justify-center font-bold text-xs shrink-0">4</div>
+          <span>Mahmmadamin Hamid Dabale</span>
+        </div>
+        <div class="p-4 bg-emerald-50/60 dark:bg-slate-800/60 rounded-xl border border-emerald-100 dark:border-slate-700 flex items-center gap-3">
+          <div class="w-7 h-7 rounded-full bg-[#087443] text-white flex items-center justify-center font-bold text-xs shrink-0">5</div>
+          <span>Ra'isaa Dawid Aliyyii</span>
+        </div>
+        <div class="p-4 bg-emerald-50/60 dark:bg-slate-800/60 rounded-xl border border-emerald-100 dark:border-slate-700 flex items-center gap-3">
+          <div class="w-7 h-7 rounded-full bg-[#087443] text-white flex items-center justify-center font-bold text-xs shrink-0">6</div>
+          <span>Mu'az Aadam</span>
+        </div>
+        <div class="p-4 bg-emerald-50/60 dark:bg-slate-800/60 rounded-xl border border-emerald-100 dark:border-slate-700 flex items-center gap-3">
+          <div class="w-7 h-7 rounded-full bg-[#087443] text-white flex items-center justify-center font-bold text-xs shrink-0">7</div>
+          <span>Najmaddin Abdurahman</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROGRAMS ================= -->
+  <section id="programs" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <h2 class="text-3xl sm:text-4xl font-extrabold font-serif-ar text-[#064B32] dark:text-emerald-400 mb-3" data-i18n="progTitle">Sagantaalee Keenya</h2>
+      <p class="text-slate-600 dark:text-slate-400 text-sm" data-i18n="progSubtitle">Sagantaalee barnootaa sadarkaa fi umrii garagaraaf prepared ta’an</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="bg-white dark:bg-slate-900 border border-amber-200/70 dark:border-slate-800 rounded-2xl p-6 shadow-sm flex flex-col justify-between">
+        <div>
+          <span class="px-3 py-1 rounded-full bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300 text-xs font-bold inline-block mb-3">Waggaa 5 - 8</span>
+          <h3 class="text-xl font-bold font-serif-ar mb-2" data-i18n="p1Title">Sagantaa Qara’iinsa Jalqabaa</h3>
+          <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed mb-4" data-i18n="p1Desc">Qaa'idu nuraniya  fi dubbisa jalqabaa barattoota sirriitti leenjisuuf.</p>
+        </div>
+        <div class="border-t border-slate-100 dark:border-slate-800 pt-3 text-xs text-slate-500">
+          <div>Sanbata - Kamisa • Continuous</div>
+          <a href="#enroll" class="mt-3 block text-center py-2 rounded-xl bg-emerald-50 dark:bg-slate-800 text-[#087443] dark:text-emerald-400 font-bold">Galmaa’i</a>
+        </div>
+      </div>
+
+      <div class="bg-white dark:bg-slate-900 border border-amber-200/70 dark:border-slate-800 rounded-2xl p-6 shadow-sm flex flex-col justify-between">
+        <div>
+          <span class="px-3 py-1 rounded-full bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300 text-xs font-bold inline-block mb-3">Waggaa 8 - 15</span>
+          <h3 class="text-xl font-bold font-serif-ar mb-2" data-i18n="p2Title">Sagantaa Tajwiidaa</h3>
+          <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed mb-4" data-i18n="p2Desc">Dubbisa Qur’aanaa seeraan fi sagalee bareedaan fooyyessuu.</p>
+        </div>
+        <div class="border-t border-slate-100 dark:border-slate-800 pt-3 text-xs text-slate-500">
+          <div>Guyyaa 3 / Torban • Ji'a 6</div>
+          <a href="#enroll" class="mt-3 block text-center py-2 rounded-xl bg-emerald-50 dark:bg-slate-800 text-[#087443] dark:text-emerald-400 font-bold">Galmaa’i</a>
+        </div>
+      </div>
+
+      <div class="bg-white dark:bg-slate-900 border border-amber-200/70 dark:border-slate-800 rounded-2xl p-6 shadow-sm flex flex-col justify-between">
+        <div>
+          <span class="px-3 py-1 rounded-full bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300 text-xs font-bold inline-block mb-3">Waggaa 9 - 18</span>
+          <h3 class="text-xl font-bold font-serif-ar mb-2" data-i18n="p3Title">Sagantaa Hifzii Guutuu</h3>
+          <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed mb-4" data-i18n="p3Desc">Qur’aana guutuu sammuutti qabachuu fi irra deebi’iinsa guyyaa.</p>
+        </div>
+        <div class="border-t border-slate-100 dark:border-slate-800 pt-3 text-xs text-slate-500">
+          <div>Guyyaa Guyyaan • Waggaa 2</div>
+          <a href="#enroll" class="mt-3 block text-center py-2 rounded-xl bg-emerald-50 dark:bg-slate-800 text-[#087443] dark:text-emerald-400 font-bold">Galmaa’i</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TEACHERS ================= -->
+  <section id="teachers" class="py-20 bg-emerald-950 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <h2 class="text-3xl sm:text-4xl font-extrabold font-serif-ar text-amber-400 mb-3" data-i18n="teachersTitle">Barsiisota Keenya</h2>
+        <p class="text-emerald-200 text-sm" data-i18n="teachersSubtitle">Barsiisota leenji’an fi muuxannoo qaban kan Qur’aana barsiisan</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-slate-900/80 border border-amber-500/30 rounded-2xl p-6 text-center">
+          <div class="w-20 h-20 mx-auto rounded-full bg-amber-400/20 text-amber-300 font-bold text-2xl flex items-center justify-center mb-4">👨‍🏫</div>
+          <h3 class="text-lg font-bold font-serif-ar text-white mb-1">USTAZ ADAM HAMID</h3>
+          <div class="text-xs text-amber-400 font-medium mb-3" data-i18n="t1Role">Barsiisaa Muummee Qur’aana & Tajwiidaa</div>
+          <p class="text-xs text-slate-300" data-i18n="t1Bio">Barnoota qara’iinsa Qur’aanaa fi naamusa gaarii barsiisuu irratti ogummaa qaba.</p>
+        </div>
+        <div class="bg-slate-900/80 border border-amber-500/30 rounded-2xl p-6 text-center">
+          <div class="w-20 h-20 mx-auto rounded-full bg-amber-400/20 text-amber-300 font-bold text-2xl flex items-center justify-center mb-4">📖</div>
+          <h3 class="text-lg font-bold font-serif-ar text-white mb-1">USTAZ ABDULHAKIM MUHAMMED</h3>
+          <div class="text-xs text-amber-400 font-medium mb-3" data-i18n="t2Role">To’ataa Sagantaa Hifzii</div>
+          <p class="text-xs text-slate-300" data-i18n="t2Bio">Hafiza Qur’aana fi barattoota hedduu Hifzii xurmursiise.</p>
+        </div>
+        <div class="bg-slate-900/80 border border-amber-500/30 rounded-2xl p-6 text-center">
+          <div class="w-20 h-20 mx-auto rounded-full bg-amber-400/20 text-amber-300 font-bold text-2xl flex items-center justify-center mb-4">📜</div>
+          <h3 class="text-lg font-bold font-serif-ar text-white mb-1">SHEIKH MUBARAK MUHAMMED</h3>
+          <div class="text-xs text-amber-400 font-medium mb-3" data-i18n="t3Role">Barsiisaa Barnoota Islaamaa</div>
+          <p class="text-xs text-slate-300" data-i18n="t3Bio">Siiraa, Hadiisa fi barnoota amantii irratti ogummaa ol’aanaa qaba.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= EVENTS ================= -->
+  <section id="events" class="py-20 bg-amber-50/50 dark:bg-slate-900/40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <h2 class="text-3xl font-extrabold font-serif-ar text-[#064B32] dark:text-emerald-400 mb-3" data-i18n="eventsTitle">Taateewwan fi Sagantaalee</h2>
+        <p class="text-slate-600 dark:text-slate-400 text-sm" data-i18n="eventsSubtitle">Qophiiwwan badhaasaa, dorgommii fi eebbisa barattootaa</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-amber-200/80 dark:border-slate-800 p-6 shadow-sm flex flex-col justify-between">
+          <div>
+            <span class="px-3 py-1 rounded-lg bg-emerald-100 dark:bg-emerald-950 text-[#087443] dark:text-emerald-300 text-xs font-bold inline-block mb-3">15 Ramadaana 2026</span>
+            <h3 class="text-lg font-bold font-serif-ar mb-2" data-i18n="e1Title">Sagantaa Eebba Haffaztoota Qur’aanaa</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-4" data-i18n="e1Desc">Ayyaana badhaasa barattoota Qur’aana guutuu Hifzii xumuraniif prepared ta’e.</p>
+          </div>
+          <div class="text-xs text-slate-500 border-t border-slate-100 dark:border-slate-800 pt-3">
+            📍 Hallii Guddaa Center • 04:00 PM
+          </div>
+        </div>
+
+        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-amber-200/80 dark:border-slate-800 p-6 shadow-sm flex flex-col justify-between">
+          <div>
+            <span class="px-3 py-1 rounded-lg bg-emerald-100 dark:bg-emerald-950 text-[#087443] dark:text-emerald-300 text-xs font-bold inline-block mb-3">20 Shawwaala 2026</span>
+            <h3 class="text-lg font-bold font-serif-ar mb-2" data-i18n="e2Title">Dorgommii Hifzii Waggaa</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-4" data-i18n="e2Desc">Dorgommii qara’iinsa Qur’aanaa sadarkaa adda addaa keessatti.</p>
+          </div>
+          <div class="text-xs text-slate-500 border-t border-slate-100 dark:border-slate-800 pt-3">
+            📍 Masgiida Center • 09:00 AM
+          </div>
+        </div>
+
+        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-amber-200/80 dark:border-slate-800 p-6 shadow-sm flex flex-col justify-between">
+          <div>
+            <span class="px-3 py-1 rounded-lg bg-emerald-100 dark:bg-emerald-950 text-[#087443] dark:text-emerald-300 text-xs font-bold inline-block mb-3">10 Dhul Qa’dah 2026</span>
+            <h3 class="text-lg font-bold font-serif-ar mb-2" data-i18n="e3Title">Marii Maatii fi Barsiisotaa</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-4" data-i18n="e3Desc">Guddisa barattootaa irratti marii maatii fi barsiisotaa.</p>
+          </div>
+          <div class="text-xs text-slate-500 border-t border-slate-100 dark:border-slate-800 pt-3">
+            📍 Kora Walga’ii • 10:00 AM
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= GALLERY ================= -->
+  <section id="gallery" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <h2 class="text-3xl font-extrabold font-serif-ar text-[#064B32] dark:text-emerald-400 mb-3" data-i18n="galleryTitle">Galmee Suuraa</h2>
+      <p class="text-slate-600 dark:text-slate-400 text-sm" data-i18n="gallerySubtitle">Suuraawwan kutaa barnootaa fi sagantaalee keenya</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div onclick="openLightbox('https://images.unsplash.com/photo-1609599006353-e629aaabfeae?auto=format&fit=crop&q=80&w=800')" class="group relative rounded-2xl overflow-hidden cursor-pointer shadow-sm border border-amber-200/50 dark:border-slate-800">
+        <img src="https://images.unsplash.com/photo-1609599006353-e629aaabfeae?auto=format&fit=crop&q=80&w=800" alt="Qur'an Class" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300">
+        <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+          <span class="text-white text-xs font-semibold">Qur’an Recitation Class</span>
+        </div>
+      </div>
+      <div onclick="openLightbox('https://images.unsplash.com/photo-1584286595398-a59f21d313f5?auto=format&fit=crop&q=80&w=800')" class="group relative rounded-2xl overflow-hidden cursor-pointer shadow-sm border border-amber-200/50 dark:border-slate-800">
+        <img src="photo_2026-11-07_21-17-02.jpg">
+        <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+          <span class="text-white text-xs font-semibold">Students Tajweed Session</span>
+        </div>
+      </div>
+      <div onclick="openLightbox('https://images.unsplash.com/photo-1519817650390-64a93db51149?auto=format&fit=crop&q=80&w=800')" class="group relative rounded-2xl overflow-hidden cursor-pointer shadow-sm border border-amber-200/50 dark:border-slate-800">
+        <img src="https://images.unsplash.com/photo-1519817650390-64a93db51149?auto=format&fit=crop&q=80&w=800" alt="Graduation Event" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300">
+        <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+          <span class="text-white text-xs font-semibold">Hifz Award Ceremony</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= NEWS ================= -->
+  <section id="news" class="py-20 bg-emerald-900/5 dark:bg-slate-900/40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <h2 class="text-3xl font-extrabold font-serif-ar text-[#064B32] dark:text-emerald-400 mb-3" data-i18n="newsTitle">Oduu fi Beeksisa</h2>
+        <p class="text-slate-600 dark:text-slate-400 text-sm" data-i18n="newsSubtitle">Odeeffannoo fi beeksisa dhiyootti ba’an</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-amber-200/80 dark:border-slate-800 shadow-sm">
+          <div class="flex justify-between items-center text-xs text-slate-500 mb-2">
+            <span class="px-2.5 py-1 bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300 rounded-full font-bold">Beeksisa</span>
+            <span>Onkoloolessa 10, 2016</span>
+          </div>
+          <h3 class="text-lg font-bold font-serif-ar mb-2" data-i18n="n1Title">Galmeen Semisteera Haaraa Banaa Ta’eera</h3>
+          <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-4" data-i18n="n1Desc">Barattoota haaraa sagantaalee Qur’aanaatiif galmeessuu jalqabneerra.</p>
+        </div>
+
+        <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-amber-200/80 dark:border-slate-800 shadow-sm">
+          <div class="flex justify-between items-center text-xs text-slate-500 mb-2">
+            <span class="px-2.5 py-1 bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300 rounded-full font-bold">Milkaa’ina</span>
+            <span>Onkoloolessa 02, 2016</span>
+          </div>
+          <h3 class="text-lg font-bold font-serif-ar mb-2" data-i18n="n2Title">Barattoonni Keenya Dorgommii Irratti Mo’atan</h3>
+          <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-4" data-i18n="n2Desc">Dorgommii Tajwiidaa irratti barattoonni keenya sadarkaa 1ffaa argataniiru.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= STUDENT PORTAL DEMO ================= -->
+  <section id="portal" class="py-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="bg-white dark:bg-slate-900 rounded-3xl p-8 sm:p-10 shadow-xl border border-amber-200 dark:border-slate-800">
+      <div class="text-center mb-8">
+        <h2 class="text-3xl font-extrabold font-serif-ar text-[#064B32] dark:text-emerald-400 mb-2" data-i18n="portalTitle">Poortaalii Barataa fi Maatii</h2>
+        <p class="text-slate-600 dark:text-slate-400 text-sm" data-i18n="portalSubtitle">Ordoffii Hifzii, hirmaannaa fi qabxii barattootaa</p>
+      </div>
+
+      <div id="portalLoginForm" class="max-w-md mx-auto space-y-4 bg-emerald-50/50 dark:bg-slate-800/50 p-6 rounded-2xl border border-emerald-100 dark:border-slate-700">
+        <div>
+          <label class="block text-xs font-bold mb-1" data-i18n="portalId">Eenyummeessaa Barataa (ID)</label>
+          <input type="text" id="pStudentId" placeholder="e.g. TAI-2026-088" class="w-full px-4 py-2.5 rounded-xl border dark:bg-slate-900 text-sm outline-none">
+        </div>
+        <div>
+          <label class="block text-xs font-bold mb-1" data-i18n="portalPass">Jecha Darbiiti / Password</label>
+          <input type="password" id="pPass" placeholder="••••••••" class="w-full px-4 py-2.5 rounded-xl border dark:bg-slate-900 text-sm outline-none">
+        </div>
+        <button onclick="loginPortal()" class="w-full py-3 rounded-xl bg-[#087443] text-white font-bold text-xs shadow-md" data-i18n="portalBtn">
+          Seeni Poortaalii
+        </button>
+      </div>
+
+      <div id="portalDashboard" class="hidden space-y-6">
+        <div class="flex justify-between items-center bg-emerald-100 dark:bg-slate-800 p-4 rounded-xl">
+          <div>
+            <div class="text-xs text-slate-500">Baga nagaan dhufte,</div>
+            <div class="font-bold text-lg text-[#087443] dark:text-emerald-400">Barataa Muhammad Abdallah</div>
+          </div>
+          <button onclick="logoutPortal()" class="text-xs text-rose-600 font-bold hover:underline">Exit Portal</button>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+          <div class="bg-amber-50 dark:bg-slate-800 p-4 rounded-xl">
+            <div class="text-2xl font-bold text-amber-700 dark:text-amber-400">18</div>
+            <div class="text-xs text-slate-500 mt-1">Suuraawwan Haffazaman</div>
+          </div>
+          <div class="bg-emerald-50 dark:bg-slate-800 p-4 rounded-xl">
+            <div class="text-2xl font-bold text-[#087443] dark:text-emerald-400">Juz 12</div>
+            <div class="text-xs text-slate-500 mt-1">Juzii Ammaa</div>
+          </div>
+          <div class="bg-amber-50 dark:bg-slate-800 p-4 rounded-xl">
+            <div class="text-2xl font-bold text-amber-700 dark:text-amber-400">96%</div>
+            <div class="text-xs text-slate-500 mt-1">Hirmaannaa</div>
+          </div>
+          <div class="bg-emerald-50 dark:bg-slate-800 p-4 rounded-xl">
+            <div class="text-2xl font-bold text-[#087443] dark:text-emerald-400">82%</div>
+            <div class="text-xs text-slate-500 mt-1">Guddina Barataa</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= CONTACT & ADMISSIONS ================= -->
+  <section id="contact" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-12">
+      <div class="space-y-6">
+        <h2 class="text-3xl font-extrabold font-serif-ar text-[#064B32] dark:text-emerald-400" data-i18n="contactTitle">Nu Qunnamaa</h2>
+        <p class="text-slate-600 dark:text-slate-400 text-sm" data-i18n="contactSub">Odeeffannoo fi gaaffilee keessaniif nu qunnamaa.</p>
+        <div class="space-y-3 text-sm">
+          <div class="p-4 rounded-xl bg-white dark:bg-slate-900 border border-amber-200 dark:border-slate-800 flex items-center gap-3">
+            <svg class="w-5 h-5 text-[#087443] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            <div><strong>Teessoo:</strong> Gafarsa, Burayu, Oromia</div>
+          </div>
+          <div class="p-4 rounded-xl bg-white dark:bg-slate-900 border border-amber-200 dark:border-slate-800 flex items-center gap-3">
+            <svg class="w-5 h-5 text-[#087443] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            <div><strong>Bilbila:</strong> <a href="tel:0929045266" class="hover:underline font-bold">0929045266</a> / <a href="tel:0944703689" class="hover:underline font-bold">0944703689</a></div>
+          </div>
+          <div class="p-4 rounded-xl bg-white dark:bg-slate-900 border border-amber-200 dark:border-slate-800 flex items-center gap-3">
+            <svg class="w-5 h-5 text-[#087443] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            <div><strong>Imeelii:</strong> <a href="mailto:Maminhamid44@gmail.com" class="hover:underline">Maminhamid44@gmail.com</a></div>
+          </div>
+        </div>
+
+        <!-- Social Media Direct Links Card -->
+        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-amber-200 dark:border-slate-800 space-y-3">
+          <div class="font-bold text-xs uppercase tracking-wider text-[#064B32] dark:text-emerald-400" data-i18n="socialLabel">Miidiyaa Hawaasaa:</div>
+          <div class="flex flex-wrap gap-3">
+            <a href="https://t.me/TarbiyatulAbnailIslam" target="_blank" rel="noreferrer" class="flex items-center gap-2 px-3 py-2 rounded-xl bg-sky-50 dark:bg-slate-800 text-sky-600 hover:bg-sky-500 hover:text-white transition-all text-xs font-semibold">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.56 8.16l-2.02 9.5c-.15.68-.55.84-1.12.52l-3.1-2.29-1.5 1.44c-.16.16-.3.3-.61.3l.22-3.14 5.72-5.17c.25-.22-.05-.34-.39-.12l-7.07 4.45-3.05-.95c-.66-.21-.67-.66.14-.98l11.92-4.6c.55-.2 1.03.13.86.84z"/></svg>
+              Telegram
+            </a>
+            <a href="https://youtube.com/@TarbiyatulAbnailIslam" target="_blank" rel="noreferrer" class="flex items-center gap-2 px-3 py-2 rounded-xl bg-red-50 dark:bg-slate-800 text-red-600 hover:bg-red-600 hover:text-white transition-all text-xs font-semibold">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+              YouTube
+            </a>
+            <a href="https://facebook.com/TarbiyatulAbnailIslam" target="_blank" rel="noreferrer" class="flex items-center gap-2 px-3 py-2 rounded-xl bg-blue-50 dark:bg-slate-800 text-blue-600 hover:bg-blue-600 hover:text-white transition-all text-xs font-semibold">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              Facebook
+            </a>
+            <a href="https://wa.me/251929045266" target="_blank" rel="noreferrer" class="flex items-center gap-2 px-3 py-2 rounded-xl bg-emerald-50 dark:bg-slate-800 text-emerald-600 hover:bg-emerald-600 hover:text-white transition-all text-xs font-semibold">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+              WhatsApp
+            </a>
+            <a href="https://tiktok.com/@TarbiyatulAbnailIslam" target="_blank" rel="noreferrer" class="flex items-center gap-2 px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 hover:bg-slate-900 hover:text-white transition-all text-xs font-semibold">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+              TikTok
+            </a>
+          </div>
+        </div>
+
+        <a href="https://wa.me/251929045266" target="_blank" rel="noreferrer" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-emerald-600 text-white font-bold text-xs shadow hover:bg-emerald-700 transition-all" data-i18n="whatsappBtn">
+          WhatsApp’n Nu Qunnamaa
+        </a>
+      </div>
+
+      <div id="enroll" class="bg-white dark:bg-slate-900 rounded-3xl p-8 border border-amber-200 dark:border-slate-800 shadow-sm">
+        <h3 class="text-2xl font-bold font-serif-ar text-[#064B32] dark:text-emerald-400 mb-4" data-i18n="enrollTitle">Ilma Keessan Amma Galmeessaa</h3>
+        <form onsubmit="event.preventDefault(); alert('Jazaakallaahu khayran. Gaaffiin galmee keessanii nu gaheera.');" class="space-y-4">
+          <input type="text" placeholder="Maqaa Maatii / Parent Name" required class="w-full px-4 py-3 rounded-xl border dark:bg-slate-800 text-sm outline-none">
+          <input type="text" placeholder="Maqaa Barataa / Student Name" required class="w-full px-4 py-3 rounded-xl border dark:bg-slate-800 text-sm outline-none">
+          <input type="tel" placeholder="Lakkoofsa Bilbilaa / Phone" required class="w-full px-4 py-3 rounded-xl border dark:bg-slate-800 text-sm outline-none">
+          <button type="submit" class="w-full py-3.5 rounded-xl bg-[#087443] text-white font-bold text-xs shadow-md" data-i18n="submitBtn">
+            Galmee Ergi
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-[#064B32] text-white pt-12 pb-6 border-t border-amber-500/30 text-center text-xs">
+    <div class="max-w-7xl mx-auto px-4 space-y-4">
+      <div class="font-bold text-lg font-serif-ar text-amber-300">تربية أبناء الإسلام | Tarbiyatul Abna’il Islam</div>
+      <p class="text-emerald-100">Gafarsa, Burayu, Oromia • Maminhamid44@gmail.com • 0929045266 / 0944703689</p>
+      
+      <div class="flex justify-center gap-4 text-emerald-200">
+        <a href="#dambii" class="hover:underline" data-i18n="navBylaws">Dambii Ittiin Bulmaataa</a> •
+        <a href="#about" class="hover:underline" data-i18n="navAbout">Waa'ee Keenya</a> •
+        <a href="#programs" class="hover:underline" data-i18n="navPrograms">Sagantaalee</a> •
+        <a href="#contact" class="hover:underline" data-i18n="navContact">Nu Qunnamaa</a>
+      </div>
+
+      <div class="text-emerald-300 pt-4 border-t border-emerald-800/80">
+        © 2026 Tarbiyatul Abna’il Islam. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= BANNER & SOCIALS ================= -->
+  <div class="bg-[#064B32] text-amber-300 text-xs py-3 px-4 border-t border-amber-500/20">
+    <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+      <div class="flex items-center gap-4 flex-wrap">
+        <span class="flex items-center gap-1 font-medium">📍 Gafarsa, Burayu, Oromia</span>
+        <span class="hidden md:flex items-center gap-1">📞 0929045266 / 0944703689</span>
+        <span class="hidden lg:flex items-center gap-1">✉️ Maminhamid44@gmail.com</span>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <span class="text-emerald-100 font-medium hidden sm:inline" data-i18n="socialLabel">Miidiyaa Hawaasaa:</span>
+        <a href="https://t.me/TarbiyatulAbnailIslam" target="_blank" rel="noreferrer" class="hover:text-white transition-colors p-1" title="Telegram">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.56 8.16l-2.02 9.5c-.15.68-.55.84-1.12.52l-3.1-2.29-1.5 1.44c-.16.16-.3.3-.61.3l.22-3.14 5.72-5.17c.25-.22-.05-.34-.39-.12l-7.07 4.45-3.05-.95c-.66-.21-.67-.66.14-.98l11.92-4.6c.55-.2 1.03.13.86.84z"/></svg>
+        </a>
+        <a href="https://youtube.com/@TarbiyatulAbnailIslam" target="_blank" rel="noreferrer" class="hover:text-white transition-colors p-1" title="YouTube">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </a>
+        <a href="https://facebook.com/TarbiyatulAbnailIslam" target="_blank" rel="noreferrer" class="hover:text-white transition-colors p-1" title="Facebook">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+        <a href="https://wa.me/251929045266" target="_blank" rel="noreferrer" class="hover:text-white transition-colors text-emerald-400 font-bold p-1" title="WhatsApp">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+        </a>
+        <a href="https://tiktok.com/@TarbiyatulAbnailIslam" target="_blank" rel="noreferrer" class="hover:text-white transition-colors p-1" title="TikTok">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- LIGHTBOX MODAL -->
+  <div id="lightboxModal" class="fixed inset-0 z-50 bg-slate-950/90 hidden items-center justify-center p-4">
+    <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white text-2xl font-bold">✕</button>
+    <img id="lightboxImg" src="" alt="Enlarged Gallery View" class="max-w-full max-h-[85vh] rounded-2xl shadow-2xl">
+  </div>
+
+  <!-- ================= JAVASCRIPT LOCALIZATION & LOGIC ================= -->
+  <script>
+    const translations = {
+      om: {
+        dir: 'ltr',
+        socialLabel: 'Miidiyaa Hawaasaa:',
+        navHome: 'Mana', navAbout: 'Waa\'ee Keenya', navQuran: 'Barnoota Qur’aanaa', navBylaws: '📜 Dambii Ittiin Bulmaataa',
+        navPrograms: 'Sagantaalee', navTeachers: 'Barsiisota', navEvents: 'Taateewwan', navGallery: 'Galmee Suuraa',
+        navNews: 'Oduu', navContact: 'Nu Qunnamaa', navEnroll: 'Amma Galmaa\'i', navPortal: 'Poortaalii Barataa',
+        heroBadge: 'Dhaabbata Barnoota Qur’aanaa fi Tarbiyaa Islaamaa',
+        heroHeadline: 'Qalbii Qur’aanaan Guddisuu',
+        heroDesc: 'Dhaloota beekumsa Qur’aanaa, amantii, naamusa gaarii fi duudhaa Islaamaa irratti hundaa’e ijaaruuf hojjenna.',
+        heroBtnEnroll: 'Ilma Keessan Galmeessaa', heroBtnBylaws: 'Dambii Ittiin Bulmaataa',
+        statStudents: 'Barattoota Galmaa’an', statTeachers: 'Barsiisota Leenji’an', statPrograms: 'Sagantaalee Barnootaa', statYears: 'Waggoota Tajaajilaa',
+        aboutTitle: 'Waa\'ee Tarbiyatul Abna’il Islam',
+        aboutDesc: 'Tarbiyatul Abna’il Islam dhaabbata barnoota Islaamaa kan Qur’aana, Tajwiida, Hifzii, barnoota Islaamaa fi naamusa gaarii barsiisuu irratti xiyyeeffatuudha.',
+        visionTitle: 'Mul\'ata Keenya', visionText: '“Dhaloota Qur’aanaan jiraatu fi naamusa gaarii Islaamaa agarsiisu uumuu.”',
+        missionTitle: 'Ergama Keenya', missionText: '“Barnoota Qur’aanaa fi Islaamaa qulqullina qabu biyyaa fi naannoo mijataa keessatti dhiyeessuu.”',
+        valuesTitle: 'Duudhaalee Keenya', valuesText: 'Qur’aana • Amantii • Beekumsa • Naamusa • Kabaja • Seera • Ittigaafatamummaa',
+        quranEduTitle: 'Barnoota Qur’aanaa', quranEduSubtitle: 'Mata dureewwan barnoota Qur’aanaa, qara’iinsa fi Hifzii',
+        c1Title: 'Qara’iinsa Qur’aanaa', c1Desc: 'Sagalee sirrii fi dubbisa qulqulluu Qur’aanaa barattoota barsiisuu.',
+        c2Title: 'Tajwiida', c2Desc: 'Seera Tajwiidaa akkasumas haala bareedaa qara’iinsaa barsiisuu.',
+        c3Title: 'Hifzii Qur’aanaa', c3Desc: 'Qur’aana sirnaan qabachuun irra deebi’insa gahaa waliin.',
+        c4Title: 'Barnoota Islaamaa', c4Desc: 'Aqidaa, Fiqhii, Siiraa, fi Hadiisa barattoota barsiisuu.',
+        c5Title: 'Du’aa’ii fi Hadiisa', c5Desc: 'Du’aa’ii guyyaa guyyaa fi Hadiisota filatamaan leenjisuu.',
+        c6Title: 'Naamusa Islaamaa', c6Desc: 'Dhugummaa, kabaja, obsa, fi amanamummaa ijaaruu.',
+        progTitle: 'Sagantaalee Keenya', progSubtitle: 'Sagantaalee barnootaa sadarkaa fi umrii garagaraaf prepared ta’an',
+        p1Title: 'Sagantaa Qara’iinsa Jalqabaa', p1Desc: 'Qubeewwan fi dubbisa jalqabaa barattoota sirriitti leenjisuuf.',
+        p2Title: 'Sagantaa Tajwiidaa', p2Desc: 'Dubbisa Qur’aanaa seeraan fi sagalee bareedaan fooyyessuu.',
+        p3Title: 'Sagantaa Hifzii Guutuu', p3Desc: 'Qur’aana guutuu sammuutti qabachuu fi irra deebi’iinsa guyyaa.',
+        teachersTitle: 'Barsiisota Keenya', teachersSubtitle: 'Barsiisota leenji’an fi muuxannoo qaban kan Qur’aana barsiisan',
+        t1Role: 'Barsiisaa Muummee Qur’aana & Tajwiidaa', t1Bio: 'Barnoota qara’iinsa Qur’aanaa fi naamusa gaarii barsiisuu irratti ogummaa qaba.',
+        t2Role: 'To’ataa Sagantaa Hifzii', t2Bio: 'Hafiza Qur’aana fi barattoota hedduu Hifzii xurmursiise.',
+        t3Role: 'Barsiisaa Barnoota Islaamaa', t3Bio: 'Siiraa, Hadiisa fi barnoota amantii irratti ogummaa ol’aanaa qaba.',
+        eventsTitle: 'Taateewwan fi Sagantaalee', eventsSubtitle: 'Qophiiwwan badhaasaa, dorgommii fi eebbisa barattootaa',
+        e1Title: 'Sagantaa Eebba Haffaztoota Qur’aanaa', e1Desc: 'Ayyaana badhaasa barattoota Qur’aana guutuu Hifzii xumuraniif prepared ta’e.',
+        e2Title: 'Dorgommii Hifzii Waggaa', e2Desc: 'Dorgommii qara’iinsa Qur’aanaa sadarkaa adda addaa keessatti.',
+        e3Title: 'Marii Maatii fi Barsiisotaa', e3Desc: 'Guddisa barattootaa irratti marii maatii fi barsiisotaa.',
+        galleryTitle: 'Galmee Suuraa', gallerySubtitle: 'Suuraawwan kutaa barnootaa fi sagantaalee keenya',
+        newsTitle: 'Oduu fi Beeksisa', newsSubtitle: 'Odeeffannoo fi beeksisa dhiyootti ba’an',
+        n1Title: 'Galmeen Semisteera Haaraa Banaa Ta’eera', n1Desc: 'Barattoota haaraa sagantaalee Qur’aanaatiif galmeessuu jalqabneerra.',
+        n2Title: 'Barattoonni Keenya Dorgommii Irratti Mo’atan', n2Desc: 'Dorgommii Tajwiidaa irratti barattoonni keenya sadarkaa 1ffaa argataniiru.',
+        portalTitle: 'Poortaalii Barataa fi Maatii', portalSubtitle: 'Ordoffii Hifzii, hirmaannaa fi qabxii barattootaa',
+        portalId: 'Eenyummeessaa Barataa (ID)', portalPass: 'Jecha Darbiiti / Password', portalBtn: 'Seeni Poortaalii',
+        contactTitle: 'Nu Qunnamaa', contactSub: 'Odeeffannoo fi gaaffilee keessaniif nu qunnamaa.',
+        whatsappBtn: 'WhatsApp’n Nu Qunnamaa', enrollTitle: 'Ilma Keessan Amma Galmeessaa', submitBtn: 'Galmee Ergi'
+      },
+      ar: {
+        dir: 'rtl',
+        socialLabel: 'شبكات التواصل:',
+        navHome: 'الرئيسية', navAbout: 'من نحن', navQuran: 'تعليم القرآن', navBylaws: '📜 اللائحة الداخلية',
+        navPrograms: 'البرامج', navTeachers: 'المعلمون', navEvents: 'الفعاليات', navGallery: 'المعرض',
+        navNews: 'الأخبار', navContact: 'تواصل معنا', navEnroll: 'سجّل الآن', navPortal: 'بوابة الطالب',
+        heroBadge: 'مؤسسة إسلامية لتعليم القرآن والتربية',
+        heroHeadline: 'نُرَبِّي القلوب بالقرآن',
+        heroDesc: 'نسعى إلى تربية جيل مسلم متعلم، متمسك بالقرآن الكريم، ومتصف بالأخلاق الإسلامية الفاضلة.',
+        heroBtnEnroll: 'سجّل ابنك الآن', heroBtnBylaws: 'اللائحة الداخلية',
+        statStudents: 'طالب وطالبة', statTeachers: 'معلم معتمد', statPrograms: 'برامج تعليمية', statYears: 'سنوات من العطاء',
+        aboutTitle: 'من نحن',
+        aboutDesc: 'تربية أبناء الإسلام مؤسسة تعليمية إسلامية تهتم بتعليم القرآن الكريم والتجويد والحفظ والدراسات الإسلامية وتنمية الأخلاق.',
+        visionTitle: 'رؤيتنا', visionText: '"أن نكون مؤسسة رائدة في تربية جيل قرآني يتمسك بالأخلاق الإسلامية الفاضلة."',
+        missionTitle: 'رسالتنا', missionText: '"تقديم تعليم قرآني وإسلامي عالي الجودة في بيئة آمنة ومحفزة."',
+        valuesTitle: 'قيمنا', valuesText: 'القرآن الكريم • الإيمان • العلم • الأخلاق • الاحترام • الانضباط',
+        quranEduTitle: 'تعليم القرآن الكريم', quranEduSubtitle: 'منهج متكامل لتعلم كتاب الله تعالى قراءة وحفظًا وتدبرًا',
+        c1Title: 'قراءة القرآن', c1Desc: 'تعليم النطق الصحيح للحروف والقراءة السليمة المتقنة.',
+        c2Title: 'التجويد', c2Desc: 'تدريس أحكام التجويد النظرية والتطبيقية لترتيل القرآن.',
+        c3Title: 'حفظ القرآن', c3Desc: 'برامج حفظ متدرجة ومجربة مع متابعة يومية ومراجع.',
+        c4Title: 'الدراسات الإسلامية', c4Desc: 'غرس مبادئ العقيدة الصحيحة، الفقه، والسيرة النبوية.',
+        c5Title: 'الأدعية والأحاديث', c5Desc: 'حفظ الأذكار اليومية والأحاديث النبوية المأثورة.',
+        c6Title: 'الأخلاق الإسلامية', c6Desc: 'تربية النشء على الصدق، البر، الصبر، والاحترام.',
+        progTitle: 'برامجنا التعليمية', progSubtitle: 'خيارات تعليمية متنوعة تناسب جميع المستويات',
+        p1Title: 'برنامج البراعم والقرآن', p1Desc: 'مخصص للأطفال المبتدئين لتعليم الحروف والقراءة الصحيحة.',
+        p2Title: 'برنامج إتقان التجويد', p2Desc: 'تركيز مكثف على مخارج الحروف وصفاتها وتطبيق التلاوة.',
+        p3Title: 'برنامج الحفظ المكثف', p3Desc: 'مخصص للطلاب الراغبين في حفظ القرآن الكريم كاملاً.',
+        teachersTitle: 'كادرنا التعليمي', teachersSubtitle: 'نخبة من المعلمين المعتمدين والمجازين في تعليم كتاب الله',
+        t1Role: 'كبير معلمي القرآن والتجويد', t1Bio: 'متخصص في تعليم التلاوة والتجويد للنشء وبناء الشخصية القرآنية.',
+        t2Role: 'مشرف برنامج الحفظ والإتقان', t2Bio: 'حافظ للقرآن الكريم ومجاز، أشرف على تخريج عشرات الحفاظ.',
+        t3Role: 'مدرس الدراسات الإسلامية والأخلاق', t3Bio: 'باحث في التربية الإسلامية والسيرة النبوية ومربٍّ قدير.',
+        eventsTitle: 'الفعاليات والأنشطة', eventsSubtitle: 'نُنَظِّمُ ملتقيات قرآنية ومسابقات وتحفيزًا لطلابنا',
+        e1Title: 'حفل تكريم حفاظ القرآن الكريم', e1Desc: 'احتفال سنوي بتكريم الطلاب وطالبات المركز الذين أتموا حفظ كتاب الله.',
+        e2Title: 'المسابقة القرآنية السنوية', e2Desc: 'مسابقة تنافسية في حفظ وتجويد القرآن الكريم بين مختلف الفئات.',
+        e3Title: 'ملتقى أولياء الأمور والتربية', e3Desc: 'لقاء دوري لبحث تعزيز التعاون بين البيت والمركز لتربية الأبناء.',
+        galleryTitle: 'معرض الصور', gallerySubtitle: 'جولة مصورة في أروقة المركز وحلقات التعلم والفعاليات',
+        newsTitle: 'الأخبار الإعلانات', newsSubtitle: 'آخر مستجدات المركز ونشاطاته التعليمية',
+        n1Title: 'فتح باب التسجيل للفصل الدراسي الجديد', n1Desc: 'يعلن المركز عن بدء استقبال طلبات التسجيل للطلاب الجدد.',
+        n2Title: 'فوز طلابنا في مسابقة التجويد المحلية', n2Desc: 'حقق طلاب المركز المراكز الأولى في مسابقة تجويد القرآن الكريم.',
+        portalTitle: 'بوابة الطالب والولي', portalSubtitle: 'متابعة مباشرة للحفظ، الحضور، النتائج والواجبات',
+        portalId: 'رقم الطالب / المعرف', portalPass: 'كلمة المرور', portalBtn: 'دخول البوابة',
+        contactTitle: 'تواصل معنا', contactSub: 'يسعدنا تواصلكم واستفساراتكم حول برامجنا والتسجيل.',
+        whatsappBtn: 'تواصل عبر واتساب', enrollTitle: 'سجّل ابنك الآن', submitBtn: 'إرسال طلب التسجيل'
+      },
+      en: {
+        dir: 'ltr',
+        socialLabel: 'Follow Us:',
+        navHome: 'Home', navAbout: 'About Us', navQuran: 'Qur’an Education', navBylaws: '📜 Constitution',
+        navPrograms: 'Programs', navTeachers: 'Teachers', navEvents: 'Events', navGallery: 'Gallery',
+        navNews: 'News', navContact: 'Contact', navEnroll: 'Enroll Now', navPortal: 'Student Portal',
+        heroBadge: 'Islamic Qur’an & Upbringing Center',
+        heroHeadline: 'Nurturing Hearts Through the Qur’an',
+        heroDesc: 'Building a generation rooted in Qur’anic knowledge, Islamic values, good character, and faith.',
+        heroBtnEnroll: 'Enroll Your Child', heroBtnBylaws: 'View Bylaws',
+        statStudents: 'Students Enrolled', statTeachers: 'Qualified Teachers', statPrograms: 'Educational Programs', statYears: 'Years of Service',
+        aboutTitle: 'About Tarbiyatul Abna’il Islam',
+        aboutDesc: 'Tarbiyatul Abna’il Islam is an Islamic educational center dedicated to Qur’an learning, Tajweed, memorization, Islamic studies, and character development.',
+        visionTitle: 'Our Vision', visionText: '“To nurture a generation that lives by the Qur’an and embodies excellent Islamic character.”',
+        missionTitle: 'Our Mission', missionText: '“To provide accessible, high-quality Qur’anic and Islamic education in a safe, respectful environment.”',
+        valuesTitle: 'Our Core Values', valuesText: 'Qur’an • Faith • Knowledge • Character • Respect • Discipline • Responsibility',
+        quranEduTitle: 'Qur’an Education', quranEduSubtitle: 'Comprehensive curriculum for reciting, memorizing, and understanding the Holy Qur’an',
+        c1Title: 'Qur’an Reading', c1Desc: 'Teach students correct Arabic pronunciation and fluent Qur’an reading.',
+        c2Title: 'Tajweed', c2Desc: 'Teach Tajweed rules progressively and practically for melodious recitation.',
+        c3Title: 'Qur’an Memorization', c3Desc: 'Structured Qur’an memorization with regular revision and monitoring.',
+        c4Title: 'Islamic Studies', c4Desc: 'Teach Aqidah, Fiqh, Seerah, Hadith, and essential Islamic manners.',
+        c5Title: 'Da’wa & Hadith', c5Desc: 'Teach authentic daily supplications and selected Prophet’s traditions.',
+        c6Title: 'Islamic Character', c6Desc: 'Develop honesty, respect, patience, kindness, responsibility, and discipline.',
+        progTitle: 'Our Educational Programs', progSubtitle: 'Tailored learning tracks designed for different ages and skill levels',
+        p1Title: 'Beginner Qur’an Program', p1Desc: 'For children beginning Arabic letters and initial Qur’an reading.',
+        p2Title: 'Tajweed & Recitation Program', p2Desc: 'Focus on precise articulation points and rules of recitation.',
+        p3Title: 'Hifz Memorization Program', p3Desc: 'Structured memorization of the entire Qur’an with daily revision.',
+        teachersTitle: 'Our Qualified Teachers', teachersSubtitle: 'Experienced, certified educators dedicated to teaching the Qur’an',
+        t1Role: 'Head Qur’an & Tajweed Teacher', t1Bio: 'Specialized in child recitation, Tajweed fundamentals, and character building.',
+        t2Role: 'Hifz & Memorization Supervisor', t2Bio: 'Certified Qur’an memorizer who has mentored dozens of Hifz graduates.',
+        t3Role: 'Islamic Studies & Character Educator', t3Bio: 'Expert in Seerah, Hadith, Aqidah, and youth moral development.',
+        eventsTitle: 'Events & Activities', eventsSubtitle: 'Community gatherings, competitions, and graduation ceremonies',
+        e1Title: 'Qur’an Completion & Graduation', e1Desc: 'Annual ceremony celebrating students who completed the memorization of the Qur’an.',
+        e2Title: 'Annual Hifz Competition', e2Desc: 'Inspirational recitation competition with awards across different age brackets.',
+        e3Title: 'Parents & Educators Workshop', e3Desc: 'Discussion on strengthening family-school partnership for child upbringing.',
+        galleryTitle: 'Photo Gallery', gallerySubtitle: 'A glimpse into our classrooms, student activities, and special events',
+        newsTitle: 'News & Announcements', newsSubtitle: 'Stay updated with institutional news and upcoming schedules',
+        n1Title: 'New Academic Term Enrollment Open', n1Desc: 'We are now accepting student applications for the upcoming Qur’anic semester.',
+        n2Title: 'Students Excel in Regional Contest', n2Desc: 'Our students secured top awards in the regional Qur’an recitation competition.',
+        portalTitle: 'Student & Parent Portal', portalSubtitle: 'Track memorization progress, attendance, grades, and assignments',
+        portalId: 'Student ID', portalPass: 'Password', portalBtn: 'Login to Portal',
+        contactTitle: 'Contact Us', contactSub: 'Reach out to our administrative team for inquiries and enrollment.',
+        whatsappBtn: 'Chat on WhatsApp', enrollTitle: 'Enroll Your Child', submitBtn: 'Submit Application'
+      }
+    };
+
+    function changeLanguage(lang) {
+      localStorage.setItem('tai_lang', lang);
+      const t = translations[lang] || translations.om;
+      document.documentElement.dir = t.dir;
+      document.documentElement.lang = lang;
+      
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key]) {
+          el.textContent = t[key];
+        }
+      });
+    }
+
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('hidden');
+    }
+
+    function filterBylawArticles() {
+      const query = document.getElementById('bylawSearchInput').value.toLowerCase();
+      const cards = document.querySelectorAll('.bylaw-card');
+      cards.forEach(card => {
+        const text = card.textContent.toLowerCase();
+        card.style.display = text.includes(query) ? 'block' : 'none';
+      });
+    }
+
+    function openLightbox(src) {
+      document.getElementById('lightboxImg').src = src;
+      const modal = document.getElementById('lightboxModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeLightbox() {
+      const modal = document.getElementById('lightboxModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function loginPortal() {
+      document.getElementById('portalLoginForm').classList.add('hidden');
+      document.getElementById('portalDashboard').classList.remove('hidden');
+    }
+
+    function logoutPortal() {
+      document.getElementById('portalDashboard').classList.add('hidden');
+      document.getElementById('portalLoginForm').classList.remove('hidden');
+    }
+
+    // Dark Theme Logic
+    const themeBtn = document.getElementById('themeToggle');
+    themeBtn.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+      const isDark = document.documentElement.classList.contains('dark');
+      localStorage.setItem('tai_theme', isDark ? 'dark' : 'light');
+      themeBtn.textContent = isDark ? '☀️' : '🌙';
+    });
+
+    // Init on Page Load
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('tai_lang') || 'om';
+      document.getElementById('langSelect').value = savedLang;
+      changeLanguage(savedLang);
+
+      const savedTheme = localStorage.getItem('tai_theme');
+      if (savedTheme === 'dark') {
+        document.documentElement.classList.add('dark');
+        themeBtn.textContent = '☀️';
+      }
+    });
+  </script>
+</body>
+</html>
